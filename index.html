@@ -78,22 +78,17 @@
             gap: 15px;
         }
 
-        .logo-icon {
+        .logo-custom {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            color: white;
             box-shadow: 0 10px 20px rgba(93, 139, 244, 0.3);
             transition: all 0.3s ease;
             cursor: pointer;
+            object-fit: cover;
         }
 
-        .logo-icon:hover {
+        .logo-custom:hover {
             transform: rotate(10deg) scale(1.05);
         }
 
@@ -806,8 +801,8 @@
         }
 
         .supporter-logo {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             background: rgba(255, 255, 255, 0.2);
             border-radius: 15px;
             display: flex;
@@ -815,6 +810,7 @@
             justify-content: center;
             transition: all 0.3s ease;
             cursor: pointer;
+            overflow: hidden;
         }
 
         .supporter-logo:hover {
@@ -822,9 +818,11 @@
             background: rgba(255, 255, 255, 0.3);
         }
 
-        .supporter-logo i {
-            font-size: 24px;
-            color: white;
+        .supporter-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
         }
 
         .supporters-text {
@@ -998,10 +996,9 @@
                 font-size: 26px;
             }
             
-            .logo-icon {
+            .logo-custom {
                 width: 60px;
                 height: 60px;
-                font-size: 24px;
             }
             
             .modal-content {
@@ -1021,6 +1018,11 @@
             .footer-logo i {
                 font-size: 32px;
             }
+            
+            .supporter-logo {
+                width: 70px;
+                height: 70px;
+            }
         }
     </style>
 </head>
@@ -1028,9 +1030,7 @@
     <div class="container">
         <header>
             <div class="logo">
-                <div>
-                  <img src="https://files.catbox.moe/g21szl.png" alt="logo JuepClass">
-                </div>
+                <img src="https://files.catbox.moe/g21szl.png" alt="logo JuepClass" class="logo-custom floating">
                 <div class="logo-text">
                     <h1>JuepClass</h1>
                     <p>Kelas Yang Santai & Kreatif</p>
@@ -1134,10 +1134,10 @@
                     <h3 class="supporters-title">Didukung Oleh</h3>
                     <div class="supporters-logos">
                         <div class="supporter-logo">
-                            <i class="fas fa-school"></i>
+                            <img src="https://files.catbox.moe/neio5k.jpg" alt="Logo SMPN 279">
                         </div>
                         <div class="supporter-logo">
-                            <i class="fas fa-users"></i>
+                            <img src="https://files.catbox.moe/g21szl.png" alt="Logo JuepClass">
                         </div>
                     </div>
                     <div class="supporters-text">
@@ -1148,7 +1148,7 @@
             
             <div class="footer-bottom">
                 <div class="copyright">
-                    &copy; 2023 <strong>NdiiDepzX</strong> | <strong>JuepClass</strong>
+                    &copy; 2025 <strong>NdiiDepzX</strong> | <strong>JuepClass</strong>
                 </div>
                 
                 <div class="sponsor">
@@ -1157,14 +1157,12 @@
                 </div>
                 
                 <div class="footer-social">
-                    <a href="#" class="footer-social-link">
+                    <a href="https://www.instagram.com/jufercets_dtz?igsh=ZWZ4bTM1cG1uNG8=" class="footer-social-link">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#" class="footer-social-link">
-                        <i class="fab fa-facebook-f"></i>
+                    <a href="https://whatsapp.com/channel/0029Vb6ZxJe23n3n9laIJv2S" class="footer-social-link">
+                        <i class="fab fa-whatsapp"></i>
                     </a>
-                    <a href="#" class="footer-social-link">
-                        <i class="fab fa-twitter"></i>
                     </a>
                 </div>
             </div>
