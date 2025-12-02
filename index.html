@@ -23,6 +23,10 @@
             --bg-color: #F5F7FF;
             --header-bg: rgba(255, 255, 255, 0.8);
             --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --paper-1: #fff9f0;
+            --paper-2: #f0f8ff;
+            --paper-3: #f9f0ff;
+            --paper-4: #fff0f5;
         }
 
         .dark-mode {
@@ -38,6 +42,10 @@
             --bg-color: #121212;
             --header-bg: rgba(30, 30, 46, 0.8);
             --shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            --paper-1: #2a2438;
+            --paper-2: #2d3746;
+            --paper-3: #3a2d4a;
+            --paper-4: #3a2d38;
         }
 
         * {
@@ -249,6 +257,375 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(0deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 50%);
+        }
+
+        .more-media-btn {
+            margin-top: 25px;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, var(--instagram), #C13584);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(225, 48, 108, 0.3);
+        }
+
+        .more-media-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(225, 48, 108, 0.4);
+            background: linear-gradient(45deg, #C13584, var(--instagram));
+        }
+
+        /* Instagram Stalker Section */
+        .stalker-section {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stalker-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--instagram), #5D8BF4, var(--accent));
+        }
+
+        .stalker-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stalker-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            box-shadow: 0 5px 15px rgba(93, 139, 244, 0.3);
+        }
+
+        .stalker-text h2 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .stalker-text p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .stalker-search-container {
+            margin: 20px 0;
+        }
+
+        .stalker-search-wrapper {
+            display: flex;
+            gap: 10px;
+        }
+
+        .stalker-search-input {
+            flex: 1;
+            padding: 15px 20px;
+            background: var(--light-alt);
+            border: 2px solid transparent;
+            border-radius: 15px;
+            color: var(--text);
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .stalker-search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 8px 25px rgba(93, 139, 244, 0.2);
+        }
+
+        .stalker-search-btn {
+            padding: 0 25px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(93, 139, 244, 0.3);
+        }
+
+        .stalker-search-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(123, 102, 255, 0.3);
+        }
+
+        .stalker-search-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        /* Loading Animation */
+        .loading-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--light-alt);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Instagram Profile Card */
+        .instagram-profile-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: none;
+        }
+
+        .profile-header-stalker {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-img-stalker {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--instagram);
+            margin-right: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-info-stalker {
+            flex: 1;
+        }
+
+        .profile-info-stalker h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .profile-info-stalker p {
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .profile-stats-stalker {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .stat-item-stalker {
+            text-align: center;
+        }
+
+        .stat-number-stalker {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .stat-label-stalker {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 3px;
+        }
+
+        .profile-details-stalker {
+            margin: 20px 0;
+        }
+
+        .detail-row {
+            display: flex;
+            margin-bottom: 12px;
+            align-items: flex-start;
+        }
+
+        .detail-row i {
+            margin-right: 12px;
+            color: var(--primary);
+            width: 20px;
+            font-size: 16px;
+            margin-top: 3px;
+        }
+
+        .detail-row span {
+            color: var(--text);
+            font-size: 15px;
+        }
+
+        .highlight-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark);
+            margin: 20px 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .highlights-container {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+
+        .highlight-item {
+            flex: 0 0 auto;
+            width: 80px;
+            text-align: center;
+        }
+
+        .highlight-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--instagram);
+            margin: 0 auto 8px;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-circle:hover {
+            transform: scale(1.05);
+        }
+
+        .highlight-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .highlight-name {
+            font-size: 12px;
+            color: var(--text);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .posts-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark);
+            margin: 20px 0 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+        }
+
+        .post-item {
+            aspect-ratio: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .post-item:hover {
+            transform: scale(1.03);
+        }
+
+        .post-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .post-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 8px;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .post-item:hover .post-overlay {
+            opacity: 1;
+        }
+
+        .post-stats {
+            display: flex;
+            gap: 8px;
+            color: white;
+            font-size: 11px;
+        }
+
+        /* Error Message */
+        .error-message {
+            background: rgba(244, 67, 54, 0.1);
+            border: 1px solid #F44336;
+            color: #F44336;
+            padding: 12px 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            display: none;
+            align-items: center;
+            gap: 10px;
         }
 
         /* Search Bar */
@@ -655,6 +1032,246 @@
             box-shadow: 0 8px 20px rgba(225, 48, 108, 0.4);
         }
 
+        /* Instagram Media Modal */
+        .media-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .media-modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--card-bg);
+            border-radius: 25px;
+            width: 90%;
+            max-width: 1200px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            animation: zoomIn 0.4s ease;
+        }
+
+        .media-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 30px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .media-modal-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .media-modal-title i {
+            color: var(--instagram);
+        }
+
+        .close-media-modal {
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-media-modal:hover {
+            color: var(--accent);
+            transform: rotate(90deg);
+        }
+
+        .media-search-container {
+            padding: 20px 30px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .media-search-box {
+            width: 100%;
+            padding: 15px 20px;
+            background: var(--light-alt);
+            border: 2px solid transparent;
+            border-radius: 15px;
+            color: var(--text);
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .media-search-box:focus {
+            outline: none;
+            border-color: var(--instagram);
+            box-shadow: 0 5px 15px rgba(225, 48, 108, 0.2);
+        }
+
+        .instagram-accounts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .instagram-account-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+        }
+
+        .instagram-account-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(225, 48, 108, 0.15);
+        }
+
+        .account-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .account-profile-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--instagram);
+            margin-right: 20px;
+        }
+
+        .account-info h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+            color: var(--dark);
+            font-weight: 700;
+        }
+
+        .account-info p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .account-stats {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            padding: 15px;
+            background: var(--light-alt);
+            border-radius: 15px;
+        }
+
+        .stat-item-account {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-number-account {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .stat-label-account {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 3px;
+        }
+
+        .account-link {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .instagram-account-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(45deg, var(--instagram), #C13584);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(225, 48, 108, 0.3);
+        }
+
+        .instagram-account-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(225, 48, 108, 0.4);
+        }
+
+        /* Preview Modal */
+        .preview-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .preview-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            overflow: hidden;
+            animation: zoomIn 0.3s ease;
+        }
+
+        .preview-content img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+
+        .close-preview {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .close-preview:hover {
+            background: rgba(0,0,0,0.8);
+            transform: rotate(90deg);
+        }
+
         /* Footer Styles - Lebih Menarik dan Interaktif */
         footer {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -916,113 +1533,1172 @@
             animation: float 6s ease-in-out infinite;
         }
 
-        /* Responsive */
-        @media (max-width: 1100px) {
-            .cards-grid {
-                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        /* ============================================= */
+        /* FEATURES SECTION - MAILBOX & GALLERY */
+        /* ============================================= */
+        
+        .features-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(93, 139, 244, 0.2);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+            color: white;
+            box-shadow: 0 10px 20px rgba(93, 139, 244, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+        
+        .feature-title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        
+        .feature-desc {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .open-feature-btn {
+            padding: 12px 25px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(93, 139, 244, 0.3);
+        }
+        
+        .open-feature-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(123, 102, 255, 0.3);
+        }
+        
+        /* Mailbox Modal */
+        .mailbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .mailbox-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--card-bg);
+            border-radius: 25px;
+            width: 95%;
+            max-width: 1200px;
+            max-height: 95vh;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            animation: mailboxOpen 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        @keyframes mailboxOpen {
+            0% { 
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.7) rotateX(20deg);
+            }
+            100% { 
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1) rotateX(0);
             }
         }
-
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
+        
+        .mailbox-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 30px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .mailbox-title {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .mailbox-title i {
+            color: white;
+        }
+        
+        .close-mailbox {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .close-mailbox:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+        
+        .mailbox-body {
+            padding: 30px;
+            min-height: 60vh;
+            position: relative;
+            overflow: hidden;
+            background: 
+                linear-gradient(45deg, transparent 49.5%, rgba(93, 139, 244, 0.1) 49.5%, rgba(93, 139, 244, 0.1) 50.5%, transparent 50.5%),
+                linear-gradient(-45deg, transparent 49.5%, rgba(93, 139, 244, 0.1) 49.5%, rgba(93, 139, 244, 0.1) 50.5%, transparent 50.5%);
+            background-size: 20px 20px;
+        }
+        
+        .letter-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            perspective: 1000px;
+        }
+        
+        .mailbox-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 120px;
+            color: var(--primary);
+            opacity: 0.1;
+            z-index: 1;
+            transition: all 0.5s ease;
+        }
+        
+        .mailbox-icon.hidden {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.5);
+        }
+        
+        /* Efek Kertas Surat yang Sangat Realistis */
+        .letter {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+            background: linear-gradient(135deg, var(--paper-1), color-mix(in srgb, var(--paper-1) 90%, transparent));
+            border-radius: 8px;
+            padding: 25px;
+            cursor: pointer;
+            transform-origin: center center;
+            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            z-index: 2;
+            box-shadow: 
+                0 2px 5px rgba(0,0,0,0.1),
+                0 10px 20px rgba(0,0,0,0.15),
+                0 20px 40px rgba(0,0,0,0.2),
+                inset 0 1px 0 rgba(255,255,255,0.3),
+                inset 0 -1px 0 rgba(0,0,0,0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+            transform-style: preserve-3d;
+        }
+        
+        .letter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 95%, rgba(0,0,0,0.05) 95%),
+                        linear-gradient(-45deg, transparent 95%, rgba(0,0,0,0.05) 95%);
+            border-radius: 8px;
+            pointer-events: none;
+        }
+        
+        .letter::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background: linear-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+            background-size: 20px 20px;
+            border-radius: 4px;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        
+        .letter:nth-child(2) {
+            background: linear-gradient(135deg, var(--paper-2), color-mix(in srgb, var(--paper-2) 90%, transparent));
+        }
+        
+        .letter:nth-child(3) {
+            background: linear-gradient(135deg, var(--paper-3), color-mix(in srgb, var(--paper-3) 90%, transparent));
+        }
+        
+        .letter:nth-child(4) {
+            background: linear-gradient(135deg, var(--paper-4), color-mix(in srgb, var(--paper-4) 90%, transparent));
+        }
+        
+        .letter.zoomed {
+            z-index: 100;
+            transform: translate(-50%, -50%) scale(1.2) rotate(0deg) !important;
+            box-shadow: 
+                0 25px 50px rgba(0,0,0,0.3),
+                0 40px 80px rgba(0,0,0,0.2),
+                inset 0 1px 0 rgba(255,255,255,0.4);
+        }
+        
+        .letter.zoomed .letter-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .letter-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 3;
+        }
+        
+        .letter-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .letter:hover .letter-logo {
+            transform: scale(1.1);
+        }
+        
+        .letter-sender {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .letter-date {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+        
+        .letter-content {
+            max-height: 280px;
+            overflow-y: auto;
+            padding-right: 10px;
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--text);
+            transition: all 0.5s ease;
+            opacity: 0.9;
+            transform: translateY(10px);
+        }
+        
+        .letter-content::-webkit-scrollbar {
+            width: 4px;
+        }
+        
+        .letter-content::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
+        }
+        
+        .letter-content::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .letter-footer {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            text-align: right;
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 12px;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .letter-seal {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            transform: rotate(15deg);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            opacity: 0.7;
+        }
+        
+        .mailbox-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .mailbox-btn {
+            padding: 12px 25px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(93, 139, 244, 0.3);
+        }
+        
+        .mailbox-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(93, 139, 244, 0.4);
+        }
+        
+        .mailbox-btn.secondary {
+            background: var(--text-light);
+        }
+        
+        .mailbox-btn.secondary:hover {
+            background: var(--text);
+        }
+        
+        .mailbox-btn.accent {
+            background: var(--accent);
+            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.3);
+        }
+        
+        .mailbox-btn.accent:hover {
+            background: #ff8bb5;
+            box-shadow: 0 8px 20px rgba(255, 107, 157, 0.4);
+        }
+        
+        /* Gallery Modal Enhanced */
+        .gallery-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .gallery-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--card-bg);
+            border-radius: 25px;
+            width: 95%;
+            max-width: 1400px;
+            max-height: 95vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            animation: galleryOpen 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        @keyframes galleryOpen {
+            0% { 
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8) rotateY(10deg);
+            }
+            100% { 
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1) rotateY(0);
+            }
+        }
+        
+        .gallery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 30px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            color: white;
+        }
+        
+        .gallery-title {
+            font-size: 24px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .gallery-title i {
+            color: white;
+        }
+        
+        .close-gallery {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .close-gallery:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+        
+        .gallery-body {
+            padding: 30px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 4/3;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            transform: perspective(1000px) rotateY(0deg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gallery-item:hover {
+            transform: perspective(1000px) rotateY(5deg) translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            transform: translateZ(20px);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-date {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        /* Lightbox Enhanced */
+        .gallery-lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            z-index: 3000;
+            backdrop-filter: blur(20px);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .lightbox-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 95%;
+            max-width: 1200px;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: lightboxOpen 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        @keyframes lightboxOpen {
+            0% { 
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+            100% { 
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+        
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 15px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        
+        .lightbox-image:hover {
+            transform: scale(1.01);
+        }
+        
+        .lightbox-info {
+            margin-top: 20px;
+            text-align: center;
+            color: white;
+            max-width: 600px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+        }
+        
+        .lightbox-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+        
+        .close-lightbox {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .close-lightbox:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+        
+        /* Animasi kertas terbang yang lebih realistis */
+        @keyframes paperFlyIn {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) rotate(0deg) scale(0.1) rotateX(90deg);
+                filter: blur(10px);
+            }
+            50% {
+                opacity: 0.7;
+                filter: blur(5px);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(var(--x), var(--y)) rotate(var(--rotate)) scale(1) rotateX(0);
+                filter: blur(0);
+            }
+        }
+        
+        @keyframes paperFloat {
+            0%, 100% { 
+                transform: translate(var(--x), var(--y)) rotate(var(--rotate));
+            }
+            25% { 
+                transform: translate(calc(var(--x) + 8px), calc(var(--y) - 5px)) rotate(calc(var(--rotate) + 1deg));
+            }
+            50% { 
+                transform: translate(calc(var(--x) - 5px), calc(var(--y) + 3px)) rotate(calc(var(--rotate) - 0.5deg));
+            }
+            75% { 
+                transform: translate(calc(var(--x) + 3px), calc(var(--y) - 2px)) rotate(calc(var(--rotate) + 0.5deg));
+            }
+        }
+        
+        @keyframes paperShake {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+            10%, 30%, 50%, 70%, 90% { transform: translate(calc(-50% - 1px), -50%) rotate(-0.5deg); }
+            20%, 40%, 60%, 80% { transform: translate(calc(-50% + 1px), -50%) rotate(0.5deg); }
+        }
+        
+        /* Animasi baru untuk efek realisme */
+        @keyframes paperFold {
+            0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+            50% { transform: translate(-50%, -50%) scale(0.95) rotate(1deg); }
+            100% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+        }
+        
+        @keyframes inkSpread {
+            0% { background-size: 0% 0%; }
+            100% { background-size: 20px 20px; }
+        }
+        
+        /* Sound Controls */
+        .sound-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .sound-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .sound-btn:hover {
+            transform: scale(1.1);
+            background: var(--secondary);
+        }
+        
+        .sound-btn.muted {
+            background: var(--text-light);
+        }
+        
+        /* Responsive untuk semua device */
+        @media (max-width: 1200px) {
+            .mailbox-content,
+            .gallery-content {
+                width: 98%;
+                max-height: 98vh;
+            }
+            
+            .letter {
+                width: 280px;
+                height: 380px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .features-section {
+                grid-template-columns: 1fr;
                 gap: 20px;
             }
             
-            .header-controls {
-                width: 100%;
-                justify-content: center;
+            .letter {
+                width: 250px;
+                height: 350px;
+                padding: 20px;
             }
             
-            .date-time {
-                text-align: center;
-                width: 100%;
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
             
-            .nav-tabs {
+            .lightbox-nav {
+                padding: 0 10px;
+            }
+            
+            .lightbox-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mailbox-body {
+                padding: 20px;
+            }
+            
+            .letter-container {
+                height: 400px;
+            }
+            
+            .letter {
+                width: 220px;
+                height: 320px;
+                padding: 15px;
+            }
+            
+            .letter-sender {
+                font-size: 16px;
+            }
+            
+            .letter-content {
+                font-size: 13px;
+                max-height: 230px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 15px;
+            }
+            
+            .mailbox-controls {
+                flex-direction: column;
+                align-items: center;
                 gap: 10px;
             }
             
-            .nav-tab {
-                padding: 10px 18px;
-                font-size: 14px;
+            .mailbox-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
             }
             
-            .profile-header {
-                flex-direction: column;
-                text-align: center;
+            .gallery-body {
+                padding: 20px;
             }
             
-            .profile-img {
-                margin-right: 0;
-                margin-bottom: 15px;
+            .lightbox-content {
+                width: 98%;
             }
             
-            .profile-info h3 {
-                padding-right: 0;
+            .sound-controls {
+                bottom: 10px;
+                right: 10px;
             }
             
-            .role-badge {
-                position: relative;
-                top: auto;
-                right: auto;
-                margin-top: 10px;
-                display: inline-block;
-            }
-            
-            .stats-section {
-                flex-direction: column;
-                gap: 25px;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
+            .sound-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
             }
         }
-
-        @media (max-width: 480px) {
-            .cards-grid {
+        
+        @media (max-width: 576px) {
+            .mailbox-content,
+            .gallery-content {
+                width: 100%;
+                height: 100%;
+                max-height: 100vh;
+                border-radius: 0;
+            }
+            
+            .mailbox-header,
+            .gallery-header {
+                padding: 20px 15px;
+            }
+            
+            .mailbox-title,
+            .gallery-title {
+                font-size: 20px;
+            }
+            
+            .letter {
+                width: 200px;
+                height: 300px;
+                padding: 12px;
+            }
+            
+            .letter-logo {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .letter-content {
+                max-height: 200px;
+                font-size: 12px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 12px;
+            }
+            
+            .gallery-item {
+                aspect-ratio: 1/1;
+            }
+            
+            .lightbox-info {
+                padding: 15px;
+                margin-top: 15px;
+            }
+            
+            .lightbox-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+            
+            .close-lightbox {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+                top: 10px;
+                right: 10px;
+            }
+            
+            .sound-controls {
+                bottom: 5px;
+                right: 5px;
+            }
+            
+            .sound-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .letter {
+                width: 180px;
+                height: 280px;
+            }
+            
+            .letter-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .letter-logo {
+                margin: 0 auto;
+            }
+            
+            .gallery-grid {
                 grid-template-columns: 1fr;
             }
             
-            .logo-text h1 {
-                font-size: 26px;
+            .feature-card {
+                padding: 20px;
             }
             
-            .logo-custom {
+            .feature-icon {
                 width: 60px;
                 height: 60px;
+                font-size: 24px;
             }
             
-            .modal-content {
-                width: 95%;
+            .feature-title {
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-height: 700px) {
+            .letter-container {
+                height: 350px;
             }
             
-            .instagram-post {
-                width: 100px;
-                height: 100px;
+            .letter {
+                height: 280px;
             }
             
-            .footer-logo {
-                width: 80px;
-                height: 80px;
+            .letter-content {
+                max-height: 180px;
+            }
+        }
+        
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .letter:hover {
+                transform: none !important;
             }
             
-            .footer-logo i {
-                font-size: 32px;
+            .gallery-item:hover {
+                transform: none !important;
             }
             
-            .supporter-logo {
-                width: 70px;
-                height: 70px;
+            .feature-card:hover {
+                transform: none !important;
             }
+            
+            .lightbox-btn:active,
+            .sound-btn:active,
+            .mailbox-btn:active {
+                transform: scale(0.95);
+            }
+            
+            .letter:active {
+                animation: paperShake 0.3s ease;
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            .mailbox-modal,
+            .gallery-modal,
+            .gallery-lightbox,
+            .sound-controls {
+                display: none !important;
+            }
+        }
+        
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .letter {
+                border: 2px solid var(--primary);
+            }
+            
+            .gallery-item {
+                border: 2px solid var(--accent);
+            }
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .letter,
+            .gallery-item,
+            .feature-card {
+                transition: none !important;
+            }
+        }
+        
+        /* Dark mode specific adjustments */
+        .dark-mode .letter {
+            box-shadow: 
+                0 2px 5px rgba(0,0,0,0.3),
+                0 10px 20px rgba(0,0,0,0.4),
+                0 20px 40px rgba(0,0,0,0.5),
+                inset 0 1px 0 rgba(255,255,255,0.1),
+                inset 0 -1px 0 rgba(0,0,0,0.3);
+        }
+        
+        .dark-mode .letter-content {
+            color: var(--text);
+        }
+        
+        /* Loading animation untuk mailbox */
+        .mailbox-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            z-index: 10;
+        }
+        
+        .mailbox-loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid var(--light-alt);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        /* Audio visualization (optional) */
+        .audio-visualizer {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 100px;
+            height: 40px;
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+        
+        .audio-visualizer:hover {
+            opacity: 1;
+        }
+        
+        .audio-bar {
+            flex: 1;
+            background: var(--primary);
+            border-radius: 2px;
+            animation: audioPulse 1.5s ease-in-out infinite;
+            animation-delay: calc(var(--i) * 0.1s);
+        }
+        
+        @keyframes audioPulse {
+            0%, 100% { height: 10%; }
+            50% { height: 100%; }
+        }
+        
+        /* Tambahan untuk efek zoom pada card profile picture */
+        .profile-img, .profile-img-stalker, .account-profile-img {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-img:hover, .profile-img-stalker:hover, .account-profile-img:hover {
+            transform: scale(1.2);
+        }
+        
+        /* Animasi untuk efek realisme */
+        .paper-texture {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(0,0,0,0.05) 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, rgba(0,0,0,0.05) 2px, transparent 2px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+            pointer-events: none;
+            border-radius: 8px;
+        }
+        
+        .ink-blot {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, rgba(93, 139, 244, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: inkSpread 2s ease-out;
         }
     </style>
 </head>
@@ -1071,7 +2747,55 @@
                     <img src="https://files.catbox.moe/gga0bx.jpg" alt="Siswa JuepClass">
                 </div>
             </div>
+            <button class="more-media-btn" id="more-media-btn">
+                <i class="fas fa-images"></i> Media Lainnya
+            </button>
         </div>
+
+        <!-- Instagram Stalker Section -->
+        <section class="stalker-section">
+            <div class="stalker-header">
+                <div class="stalker-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="stalker-text">
+                    <h2>Instagram Stalker</h2>
+                    <p>Cari informasi lengkap akun Instagram (Data Simulasi)</p>
+                </div>
+            </div>
+
+            <div class="stalker-search-container">
+                <div class="stalker-search-wrapper">
+                    <input 
+                        type="text" 
+                        class="stalker-search-input" 
+                        id="stalker-input" 
+                        placeholder="Masukkan username Instagram (contoh: its_me.ndii, jufercets_dtz, yohanaharapenta)"
+                        value="its_me.ndii"
+                    >
+                    <button class="stalker-search-btn" id="stalker-btn">
+                        <i class="fas fa-search"></i> Stalk
+                    </button>
+                </div>
+                
+                <div class="error-message" id="error-message">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span id="error-text"></span>
+                </div>
+            </div>
+
+            <!-- Loading Animation -->
+            <div class="loading-container" id="loading-container">
+                <div class="loading-spinner"></div>
+                <p>Sedang mengambil data Instagram...</p>
+                <small class="text-muted">Ini hanya simulasi menggunakan data statis</small>
+            </div>
+
+            <!-- Instagram Profile Card -->
+            <div class="instagram-profile-card" id="instagram-profile-card">
+                <!-- Profile content akan diisi oleh JavaScript -->
+            </div>
+        </section>
 
         <div class="search-container">
             <input type="text" class="search-box" id="search-input" placeholder="Cari berdasarkan nama, jabatan, mapel fav, hobi, bio, atau ID...">
@@ -1109,8 +2833,33 @@
         <div class="cards-grid" id="profiles-container">
             <!-- Profile cards will be dynamically inserted here -->
         </div>
+        
+        <!-- Features Section - Mailbox & Gallery -->
+        <section class="features-section container">
+            <div class="feature-card" id="mailbox-card">
+                <div class="feature-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3 class="feature-title">Kotak Surat Kelas</h3>
+                <p class="feature-desc">Baca pesan-pesan inspiratif dari anggota kelas 7F dengan animasi kertas surat yang menarik</p>
+                <button class="open-feature-btn" id="open-mailbox-btn">
+                    <i class="fas fa-envelope-open"></i> Buka Surat
+                </button>
+            </div>
+            
+            <div class="feature-card" id="gallery-card">
+                <div class="feature-icon">
+                    <i class="fas fa-images"></i>
+                </div>
+                <h3 class="feature-title">Galeri Kelas 7F</h3>
+                <p class="feature-desc">Lihat momen-momen berharga dan foto-foto kegiatan kelas dengan teknologi galeri canggih</p>
+                <button class="open-feature-btn" id="open-gallery-btn">
+                    <i class="fas fa-eye"></i> Lihat Galeri
+                </button>
+            </div>
+        </section>
 
-        <!-- Footer yang Lebih Menarik -->
+        <!-- Footer -->
         <footer>
             <div class="footer-content">
                 <div class="footer-logo-section">
@@ -1163,7 +2912,6 @@
                     <a href="https://whatsapp.com/channel/0029Vb6ZxJe23n3n9laIJv2S" class="footer-social-link">
                         <i class="fab fa-whatsapp"></i>
                     </a>
-                    </a>
                 </div>
             </div>
         </footer>
@@ -1202,8 +2950,111 @@
         </div>
     </div>
 
+    <!-- Modal untuk Media Lainnya Instagram -->
+    <div class="media-modal" id="media-modal">
+        <div class="media-modal-content">
+            <div class="media-modal-header">
+                <h2 class="media-modal-title">
+                    <i class="fab fa-instagram"></i> Media Instagram
+                </h2>
+                <button class="close-media-modal" id="close-media-modal">&times;</button>
+            </div>
+            
+            <div class="media-search-container">
+                <input type="text" class="media-search-box" id="media-search-input" placeholder="Cari akun Instagram...">
+            </div>
+            
+            <div class="instagram-accounts-container" id="instagram-accounts-container">
+                <!-- Instagram account cards will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Preview Modal untuk gambar -->
+    <div class="preview-modal" id="preview-modal">
+        <div class="preview-content">
+            <img id="preview-image" src="" alt="">
+            <button class="close-preview" id="close-preview">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal untuk Mailbox -->
+    <div class="mailbox-modal" id="mailbox-modal">
+        <div class="mailbox-content">
+            <div class="mailbox-header">
+                <h2 class="mailbox-title">
+                    <i class="fas fa-mail-bulk"></i> Kotak Surat Kelas 7F
+                </h2>
+                <button class="close-mailbox" id="close-mailbox">&times;</button>
+            </div>
+            <div class="mailbox-body">
+                <div class="letter-container" id="letter-container">
+                    <div class="mailbox-icon" id="mailbox-icon">
+                        <i class="fas fa-mail-bulk"></i>
+                    </div>
+                    <!-- Letters will be dynamically inserted here -->
+                </div>
+                <div class="mailbox-controls">
+                    <button class="mailbox-btn accent" id="spread-letters-btn">
+                        <i class="fas fa-paper-plane"></i> Buka Semua Surat
+                    </button>
+                    <button class="mailbox-btn secondary" id="reset-letters-btn">
+                        <i class="fas fa-redo"></i> Reset Posisi
+                    </button>
+                    <button class="mailbox-btn" id="close-all-letters-btn">
+                        <i class="fas fa-times"></i> Tutup Semua Surat
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal untuk Gallery -->
+    <div class="gallery-modal" id="gallery-modal">
+        <div class="gallery-content">
+            <div class="gallery-header">
+                <h2 class="gallery-title">
+                    <i class="fas fa-camera-retro"></i> Galeri Kelas 7F
+                </h2>
+                <button class="close-gallery" id="close-gallery">&times;</button>
+            </div>
+            <div class="gallery-body">
+                <div class="gallery-grid" id="gallery-grid">
+                    <!-- Gallery items will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox untuk Gallery -->
+    <div class="gallery-lightbox" id="gallery-lightbox">
+        <div class="lightbox-content">
+            <img id="lightbox-image" src="" alt="" class="lightbox-image">
+            <div class="lightbox-info">
+                <h3 id="lightbox-title">Judul Foto</h3>
+                <p id="lightbox-date">Tanggal</p>
+            </div>
+        </div>
+        <div class="lightbox-nav">
+            <button class="lightbox-btn" id="prev-btn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="lightbox-btn" id="next-btn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <button class="close-lightbox" id="close-lightbox">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    
+
     <script>
-        // Data profiles
+        
+                // Data profiles
         const profilesData = [
             {
                 id: 1,
@@ -1295,7 +3146,138 @@
             }
         ];
 
-        // DOM Elements
+        // Data Instagram accounts (statis untuk simulasi stalk)
+        const instagramProfiles = {
+            "its_me.ndii": {
+                username: "its_me.ndii",
+                fullName: "Achmad Bukhori Rohandi",
+                profilePic: "https://files.catbox.moe/t10tho.jpg",
+                bio: "Siswa Kelas 7F • Ketua Kelas • Basket 🏀 • Coding 💻 • Music 🎵 • Creator @juepclass • Future Web Developer",
+                isVerified: false,
+                isPrivate: false,
+                postsCount: 24,
+                followersCount: 257,
+                followingCount: 1,
+                joinDate: "Januari 2022",
+                category: "Creator",
+                engagementRate: "4.2%",
+                avgLikes: 45,
+                avgComments: 8,
+                highlights: [
+                    { title: "Basket", image: "https://files.catbox.moe/pl27b1.jpg", count: 3 },
+                    { title: "Coding", image: "https://files.catbox.moe/yz1sml.jpg", count: 5 },
+                    { title: "Kelas 7F", image: "https://files.catbox.moe/qiu0ev.jpg", count: 12 },
+                    { title: "Music", image: "https://files.catbox.moe/gga0bx.jpg", count: 4 }
+                ],
+                recentPosts: [
+                    { image: "https://img1.pixhost.to/images/9690/655082817_ndii.jpg", likes: 52, comments: 10, date: "2 hari lalu" },
+                    { image: "https://files.catbox.moe/pl27b1.jpg", likes: 67, comments: 15, date: "1 minggu lalu" },
+                    { image: "https://files.catbox.moe/yz1sml.jpg", likes: 48, comments: 7, date: "2 minggu lalu" },
+                    { image: "https://files.catbox.moe/qiu0ev.jpg", likes: 89, comments: 21, date: "3 minggu lalu" },
+                    { image: "https://files.catbox.moe/gga0bx.jpg", likes: 36, comments: 5, date: "1 bulan lalu" },
+                    { image: "https://files.catbox.moe/t10tho.jpg", likes: 42, comments: 9, date: "1 bulan lalu" }
+                ]
+            },
+            "jufercets_dtz": {
+                username: "jufercets_dtz",
+                fullName: "Kelas 7F Official",
+                profilePic: "https://files.catbox.moe/3lijxq.jpg",
+                bio: "Official Instagram Kelas 7F SMPN 279 • #JuepClass • Generasi Kreatif • Dokumentasi Kegiatan Kelas • Follow untuk update terbaru! 📚✨",
+                isVerified: false,
+                isPrivate: false,
+                postsCount: 56,
+                followersCount: 250,
+                followingCount: 35,
+                joinDate: "Agustus 2024",
+                category: "Education",
+                engagementRate: "3.8%",
+                avgLikes: 38,
+                avgComments: 6,
+                highlights: [
+                    { title: "Lomba", image: "https://files.catbox.moe/pl27b1.jpg", count: 8 },
+                    { title: "Kelas", image: "https://files.catbox.moe/yz1sml.jpg", count: 15 },
+                    { title: "Ekstrakulikuler", image: "https://files.catbox.moe/qiu0ev.jpg", count: 6 },
+                    { title: "Prestasi", image: "https://files.catbox.moe/gga0bx.jpg", count: 10 }
+                ],
+                recentPosts: [
+                    { image: "https://files.catbox.moe/pl27b1.jpg", likes: 45, comments: 8, date: "1 hari lalu" },
+                    { image: "https://files.catbox.moe/yz1sml.jpg", likes: 52, comments: 12, date: "3 hari lalu" },
+                    { image: "https://files.catbox.moe/qiu0ev.jpg", likes: 67, comments: 18, date: "1 minggu lalu" },
+                    { image: "https://files.catbox.moe/gga0bx.jpg", likes: 41, comments: 6, date: "2 minggu lalu" },
+                    { image: "https://files.catbox.moe/t10tho.jpg", likes: 38, comments: 5, date: "3 minggu lalu" },
+                    { image: "https://img1.pixhost.to/images/9677/654939419_ndii.jpg", likes: 29, comments: 4, date: "1 bulan lalu" }
+                ]
+            },
+            "yohanaharapenta": {
+                username: "yohanaharapenta",
+                fullName: "Yohana Harapenta Purba, S.Pd",
+                profilePic: "https://img1.pixhost.to/images/9690/655082817_ndii.jpg",
+                bio: "Guru SMPN 279 • Wali Kelas 7F • Pendidikan Agama Kristen • ",
+                isVerified: false,
+                isPrivate: true,
+                postsCount: 12,
+                followersCount: 145,
+                followingCount: 89,
+                joinDate: "2018",
+                category: "Educator",
+                engagementRate: "2.1%",
+                avgLikes: 25,
+                avgComments: 3,
+                highlights: [
+                    { title: "Mengajar", image: "https://img1.pixhost.to/images/9690/655082817_ndii.jpg", count: 5 },
+                    { title: "Sekolah", image: "https://files.catbox.moe/pl27b1.jpg", count: 7 }
+                ],
+                recentPosts: [
+                    { image: "https://img1.pixhost.to/images/9690/655082817_ndii.jpg", likes: 31, comments: 5, date: "2 bulan lalu" },
+                    { image: "https://files.catbox.moe/pl27b1.jpg", likes: 28, comments: 4, date: "3 bulan lalu" }
+                ]
+            }
+        };
+
+        // Data Instagram accounts untuk Media Lainnya
+        const instagramAccounts = {
+            "its_me.ndii": {
+                profileIcon: "https://files.catbox.moe/t10tho.jpg",
+                follower: 257,
+                following: 1,
+                sorotan: {
+                    "sorotan1": [
+                        "https://files.catbox.moe/pl27b1.jpg",
+                        "https://files.catbox.moe/yz1sml.jpg"
+                    ],
+                    "sorotan2": [
+                        "https://files.catbox.moe/qiu0ev.jpg",
+                        "https://files.catbox.moe/gga0bx.jpg"
+                    ]
+                },
+                uploads: [
+                    "https://img1.pixhost.to/images/9690/655082817_ndii.jpg",
+                    "https://files.catbox.moe/pl27b1.jpg"
+                ]
+            },
+            "jufercets_dtz": {
+                profileIcon: "https://files.catbox.moe/3lijxq.jpg",
+                follower: 250,
+                following: 35,
+                sorotan: {
+                    "sorotan1": [
+                        "https://files.catbox.moe/pl27b1.jpg",
+                        "https://files.catbox.moe/yz1sml.jpg",
+                        "https://files.catbox.moe/qiu0ev.jpg"
+                    ],
+                    "sorotan2": [
+                        "https://files.catbox.moe/gga0bx.jpg",
+                        "https://files.catbox.moe/t10tho.jpg"
+                    ]
+                },
+                uploads: [
+                    "https://files.catbox.moe/pl27b1.jpg",
+                    "https://files.catbox.moe/yz1sml.jpg"
+                ]
+            }
+        };
+        
+                // DOM Elements
         const profilesContainer = document.getElementById('profiles-container');
         const searchInput = document.getElementById('search-input');
         const navTabs = document.querySelectorAll('.nav-tab');
@@ -1312,6 +3294,20 @@
         const closeInstagramModal = document.getElementById('close-instagram-modal');
         const instagramModalImage = document.getElementById('instagram-modal-image');
         const instagramModalCaption = document.getElementById('instagram-modal-caption');
+        const moreMediaBtn = document.getElementById('more-media-btn');
+        const mediaModal = document.getElementById('media-modal');
+        const closeMediaModal = document.getElementById('close-media-modal');
+        const mediaSearchInput = document.getElementById('media-search-input');
+        const instagramAccountsContainer = document.getElementById('instagram-accounts-container');
+        const stalkerInput = document.getElementById('stalker-input');
+        const stalkerBtn = document.getElementById('stalker-btn');
+        const loadingContainer = document.getElementById('loading-container');
+        const profileCard = document.getElementById('instagram-profile-card');
+        const errorMessage = document.getElementById('error-message');
+        const errorText = document.getElementById('error-text');
+        const previewModal = document.getElementById('preview-modal');
+        const previewImage = document.getElementById('preview-image');
+        const closePreview = document.getElementById('close-preview');
         
         let currentFilter = 'all';
 
@@ -1321,6 +3317,7 @@
             setInterval(updateDateTime, 1000);
             updateStats();
             displayProfiles(profilesData);
+            displayInstagramAccounts();
             setupEventListeners();
             loadThemePreference();
         });
@@ -1426,6 +3423,270 @@
             });
         }
 
+        // Display Instagram accounts in media modal
+        function displayInstagramAccounts(accountsData = instagramAccounts) {
+            instagramAccountsContainer.innerHTML = '';
+            
+            if (Object.keys(accountsData).length === 0) {
+                instagramAccountsContainer.innerHTML = `
+                    <div class="no-results" style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-light);">
+                        <i class="fas fa-search" style="font-size: 50px; margin-bottom: 20px; opacity: 0.5;"></i>
+                        <h3 style="font-weight: 500;">Tidak ada akun yang ditemukan</h3>
+                        <p>Coba gunakan kata kunci lain</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            Object.entries(accountsData).forEach(([username, account], index) => {
+                const card = document.createElement('div');
+                card.className = 'instagram-account-card fade-in';
+                card.style.animationDelay = `${index * 0.1}s`;
+                
+                // Generate highlights HTML
+                let highlightsHTML = '';
+                Object.entries(account.sorotan).forEach(([highlightName, images], idx) => {
+                    highlightsHTML += `
+                        <div class="highlight-item">
+                            <div class="highlight-circle">
+                                <img src="${images[0]}" alt="${highlightName}">
+                            </div>
+                            <div class="highlight-name">${highlightName}</div>
+                        </div>
+                    `;
+                });
+                
+                // Generate posts HTML
+                let postsHTML = '';
+                account.uploads.forEach((image, idx) => {
+                    postsHTML += `
+                        <div class="post-item">
+                            <img src="${image}" alt="Post ${idx + 1}">
+                        </div>
+                    `;
+                });
+                
+                card.innerHTML = `
+                    <div class="account-header">
+                        <img src="${account.profileIcon}" alt="${username}" class="account-profile-img">
+                        <div class="account-info">
+                            <h3>@${username}</h3>
+                            <p>Akun Instagram Kelas 7F</p>
+                        </div>
+                    </div>
+                    
+                    <div class="account-stats">
+                        <div class="stat-item-account">
+                            <div class="stat-number-account">${account.follower}</div>
+                            <div class="stat-label-account">Followers</div>
+                        </div>
+                        <div class="stat-item-account">
+                            <div class="stat-number-account">${account.following}</div>
+                            <div class="stat-label-account">Following</div>
+                        </div>
+                        <div class="stat-item-account">
+                            <div class="stat-number-account">${Object.keys(account.sorotan).length}</div>
+                            <div class="stat-label-account">Sorotan</div>
+                        </div>
+                    </div>
+                    
+                    <div class="highlight-title">
+                        <i class="fas fa-star"></i> Sorotan
+                    </div>
+                    <div class="highlights-container">
+                        ${highlightsHTML}
+                    </div>
+                    
+                    <div class="posts-title">
+                        <i class="fas fa-images"></i> Postingan Terbaru
+                    </div>
+                    <div class="posts-grid">
+                        ${postsHTML}
+                    </div>
+                    
+                    <div class="account-link">
+                        <a href="https://instagram.com/${username}" target="_blank" class="instagram-account-link">
+                            <i class="fab fa-instagram"></i> Kunjungi Profil
+                        </a>
+                    </div>
+                `;
+                
+                instagramAccountsContainer.appendChild(card);
+            });
+        }
+
+        // Stalk Instagram profile
+        function stalkInstagramProfile() {
+            const username = stalkerInput.value.trim().toLowerCase();
+            
+            if (!username) {
+                showError('Masukkan username Instagram terlebih dahulu');
+                return;
+            }
+            
+            // Show loading
+            loadingContainer.style.display = 'flex';
+            profileCard.style.display = 'none';
+            errorMessage.style.display = 'none';
+            stalkerBtn.disabled = true;
+            stalkerBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memuat...';
+            
+            // Simulate API delay
+            setTimeout(() => {
+                // Check if username exists in our data
+                if (instagramProfiles[username]) {
+                    displayInstagramProfile(instagramProfiles[username]);
+                } else {
+                    showError(`Username "@${username}" tidak ditemukan.`);
+                }
+                
+                // Hide loading
+                loadingContainer.style.display = 'none';
+                stalkerBtn.disabled = false;
+                stalkerBtn.innerHTML = '<i class="fas fa-search"></i> Stalk';
+            }, 1500);
+        }
+
+        // Display Instagram profile for stalker
+        function displayInstagramProfile(profile) {
+            // Generate highlights HTML
+            let highlightsHTML = '';
+            if (profile.highlights && profile.highlights.length > 0) {
+                highlightsHTML = profile.highlights.map(highlight => `
+                    <div class="highlight-item" onclick="openImagePreview('${highlight.image}')">
+                        <div class="highlight-circle">
+                            <img src="${highlight.image}" alt="${highlight.title}">
+                        </div>
+                        <div class="highlight-name">${highlight.title}</div>
+                        <small style="color: var(--text-light); font-size: 11px;">${highlight.count} media</small>
+                    </div>
+                `).join('');
+            }
+            
+            // Generate posts HTML
+            let postsHTML = '';
+            if (profile.recentPosts && profile.recentPosts.length > 0) {
+                postsHTML = profile.recentPosts.map(post => `
+                    <div class="post-item" onclick="openImagePreview('${post.image}')">
+                        <img src="${post.image}" alt="Post">
+                        <div class="post-overlay">
+                            <div class="post-stats">
+                                <span><i class="fas fa-heart"></i> ${post.likes}</span>
+                                <span><i class="fas fa-comment"></i> ${post.comments}</span>
+                            </div>
+                            <small>${post.date}</small>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            // Generate profile HTML
+            const profileHTML = `
+                <div class="profile-header-stalker">
+                    <img src="${profile.profilePic}" alt="${profile.username}" class="profile-img-stalker">
+                    <div class="profile-info-stalker">
+                        <h3>@${profile.username}</h3>
+                        <p>${profile.fullName}</p>
+                        <div class="profile-stats-stalker">
+                            <div class="stat-item-stalker">
+                                <div class="stat-number-stalker">${profile.postsCount}</div>
+                                <div class="stat-label-stalker">Postingan</div>
+                            </div>
+                            <div class="stat-item-stalker">
+                                <div class="stat-number-stalker">${profile.followersCount}</div>
+                                <div class="stat-label-stalker">Pengikut</div>
+                            </div>
+                            <div class="stat-item-stalker">
+                                <div class="stat-number-stalker">${profile.followingCount}</div>
+                                <div class="stat-label-stalker">Mengikuti</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-details-stalker">
+                    <div class="detail-row">
+                        <i class="fas fa-user-circle"></i>
+                        <span><strong>Bio:</strong> ${profile.bio}</span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span><strong>Bergabung:</strong> ${profile.joinDate}</span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fas fa-tag"></i>
+                        <span><strong>Kategori:</strong> ${profile.category}</span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fas fa-chart-line"></i>
+                        <span><strong>Engagement Rate:</strong> ${profile.engagementRate}</span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fas fa-heart"></i>
+                        <span><strong>Rata-rata Likes:</strong> ${profile.avgLikes} per post</span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fas fa-comment"></i>
+                        <span><strong>Rata-rata Komentar:</strong> ${profile.avgComments} per post</span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fas fa-lock"></i>
+                        <span><strong>Status:</strong> ${profile.isPrivate ? 'Akun Private' : 'Akun Public'}</span>
+                    </div>
+                </div>
+                
+                ${highlightsHTML ? `
+                <div class="highlight-title">
+                    <i class="fas fa-star"></i> Sorotan
+                </div>
+                <div class="highlights-container">
+                    ${highlightsHTML}
+                </div>
+                ` : ''}
+                
+                ${postsHTML ? `
+                <div class="posts-title">
+                    <i class="fas fa-images"></i> Postingan Terbaru
+                </div>
+                <div class="posts-grid">
+                    ${postsHTML}
+                </div>
+                ` : ''}
+                
+                <div style="margin-top: 25px; text-align: center;">
+                    <a href="https://instagram.com/${profile.username}" target="_blank" class="stalker-search-btn" style="text-decoration: none; display: inline-flex;">
+                        <i class="fab fa-instagram"></i> Kunjungi Profil Asli
+                    </a>
+                    <p style="margin-top: 10px; color: var(--text-light); font-size: 12px;">
+                        <i class="fas fa-info-circle"></i> Data di atas adalah simulasi untuk keperluan demo
+                    </p>
+                </div>
+            `;
+            
+            profileCard.innerHTML = profileHTML;
+            profileCard.style.display = 'block';
+        }
+
+        // Show error message
+        function showError(message) {
+            errorText.textContent = message;
+            errorMessage.style.display = 'flex';
+            profileCard.style.display = 'none';
+        }
+
+        // Open image preview
+        function openImagePreview(imageUrl) {
+            previewImage.src = imageUrl;
+            previewModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close image preview
+        function closeImagePreview() {
+            previewModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
         // Open profile modal
         function openProfileModal(profile) {
             modalName.textContent = profile.nama;
@@ -1491,6 +3752,12 @@
             document.body.style.overflow = 'hidden';
         }
 
+        // Open media modal
+        function openMediaModal() {
+            mediaModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
         // Close modal
         function closeProfileModal() {
             profileModal.style.display = 'none';
@@ -1503,9 +3770,15 @@
             document.body.style.overflow = 'auto';
         }
 
+        // Close media modal
+        function closeMediaModalFunc() {
+            mediaModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
         // Setup event listeners
         function setupEventListeners() {
-            // Search functionality
+            // Search functionality for profiles
             searchInput.addEventListener('input', function() {
                 const searchTerm = this.value.toLowerCase();
                 
@@ -1525,6 +3798,26 @@
                 });
                 
                 displayProfiles(filteredProfiles);
+            });
+            
+            // Search functionality for Instagram accounts
+            mediaSearchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase().trim();
+                
+                if (searchTerm === '') {
+                    displayInstagramAccounts();
+                    return;
+                }
+                
+                const filteredAccounts = {};
+                
+                Object.entries(instagramAccounts).forEach(([username, account]) => {
+                    if (username.toLowerCase().includes(searchTerm)) {
+                        filteredAccounts[username] = account;
+                    }
+                });
+                
+                displayInstagramAccounts(filteredAccounts);
             });
             
             // Navigation tabs
@@ -1547,11 +3840,22 @@
             // Theme toggle
             themeToggle.addEventListener('click', toggleTheme);
             
-            // Close modal
+            // Close modals
             closeModal.addEventListener('click', closeProfileModal);
-            
-            // Close Instagram modal
             closeInstagramModal.addEventListener('click', closeInstagramModalFunc);
+            closeMediaModal.addEventListener('click', closeMediaModalFunc);
+            closePreview.addEventListener('click', closeImagePreview);
+            
+            // Open media modal
+            moreMediaBtn.addEventListener('click', openMediaModal);
+            
+            // Stalker functionality
+            stalkerBtn.addEventListener('click', stalkInstagramProfile);
+            stalkerInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    stalkInstagramProfile();
+                }
+            });
             
             // Close modal when clicking outside
             profileModal.addEventListener('click', function(e) {
@@ -1567,6 +3871,20 @@
                 }
             });
             
+            // Close media modal when clicking outside
+            mediaModal.addEventListener('click', function(e) {
+                if (e.target === mediaModal) {
+                    closeMediaModalFunc();
+                }
+            });
+            
+            // Close preview modal when clicking outside
+            previewModal.addEventListener('click', function(e) {
+                if (e.target === previewModal) {
+                    closeImagePreview();
+                }
+            });
+            
             // Close modal with Escape key
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
@@ -1575,6 +3893,12 @@
                     }
                     if (instagramModal.style.display === 'block') {
                         closeInstagramModalFunc();
+                    }
+                    if (mediaModal.style.display === 'block') {
+                        closeMediaModalFunc();
+                    }
+                    if (previewModal.style.display === 'flex') {
+                        closeImagePreview();
                     }
                 }
             });
@@ -1639,6 +3963,947 @@
                 themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
             }
         }
-    </script>
+        // Audio Controller dengan efek suara yang realistis
+        class AudioController {
+            constructor() {
+                this.sounds = {};
+                this.ambientSounds = {};
+                this.isMuted = false;
+                this.isAmbientMuted = false;
+                this.audioContext = null;
+                this.isInitialized = false;
+                
+                // Predefined sound URLs (base64 encoded small sounds)
+                this.soundFiles = {
+                    click: 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAAAA==',
+                    paper: 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAAAA==',
+                    open: 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAAAA==',
+                    close: 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAAAA==',
+                    bird: 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAAAA==',
+                    wind: 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAAAA=='
+                };
+            }
+
+            async init() {
+                if (this.isInitialized) return;
+                
+                try {
+                    // Coba buat AudioContext
+                    this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    
+                    // Load semua sound
+                    await this.loadSounds();
+                    
+                    // Setup ambient sounds
+                    this.setupAmbientSounds();
+                    
+                    this.isInitialized = true;
+                    console.log('Audio Controller initialized');
+                } catch (error) {
+                    console.warn('Audio not supported or blocked:', error);
+                    // Fallback ke HTML5 Audio jika Web Audio API tidak tersedia
+                    this.setupFallbackAudio();
+                }
+            }
+
+            async loadSounds() {
+                const soundPromises = Object.entries(this.soundFiles).map(([name, url]) => 
+                    this.loadSound(name, url)
+                );
+                await Promise.all(soundPromises);
+            }
+
+            async loadSound(name, url) {
+                try {
+                    const response = await fetch(url);
+                    const arrayBuffer = await response.arrayBuffer();
+                    const audioBuffer = await this.audioContext.decodeAudioData(arrayBuffer);
+                    
+                    this.sounds[name] = audioBuffer;
+                } catch (error) {
+                    console.warn(`Failed to load sound ${name}:`, error);
+                    // Buat sound fallback menggunakan oscillator
+                    this.sounds[name] = this.createFallbackSound(name);
+                }
+            }
+
+            createFallbackSound(name) {
+                // Buat simple tone berdasarkan jenis sound
+                const oscillator = this.audioContext.createOscillator();
+                const gainNode = this.audioContext.createGain();
+                
+                switch(name) {
+                    case 'click':
+                        oscillator.frequency.value = 800;
+                        gainNode.gain.value = 0.1;
+                        break;
+                    case 'paper':
+                        oscillator.frequency.value = 600;
+                        gainNode.gain.value = 0.05;
+                        break;
+                    case 'bird':
+                        oscillator.frequency.value = 1200;
+                        gainNode.gain.value = 0.02;
+                        break;
+                    default:
+                        oscillator.frequency.value = 440;
+                        gainNode.gain.value = 0.1;
+                }
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(this.audioContext.destination);
+                
+                return { oscillator, gainNode, type: 'fallback' };
+            }
+
+            setupAmbientSounds() {
+                // Bird sounds (random intervals)
+                this.ambientSounds.bird = {
+                    play: () => {
+                        if (this.isAmbientMuted) return;
+                        
+                        const playBirdSound = () => {
+                            if (!this.isAmbientMuted) {
+                                this.play('bird', 0.3);
+                            }
+                            
+                            // Schedule next bird sound (random between 3-8 seconds)
+                            setTimeout(playBirdSound, 3000 + Math.random() * 5000);
+                        };
+                        
+                        playBirdSound();
+                    },
+                    stop: () => {
+                        this.isAmbientMuted = true;
+                    }
+                };
+                
+                // Wind/ambient background
+                this.ambientSounds.wind = {
+                    play: () => {
+                        if (this.isAmbientMuted) return;
+                        
+                        const noise = this.audioContext.createBufferSource();
+                        const buffer = this.audioContext.createBuffer(1, this.audioContext.sampleRate * 2, this.audioContext.sampleRate);
+                        const data = buffer.getChannelData(0);
+                        
+                        for (let i = 0; i < buffer.length; i++) {
+                            data[i] = Math.random() * 2 - 1;
+                        }
+                        
+                        const filter = this.audioContext.createBiquadFilter();
+                        filter.type = 'lowpass';
+                        filter.frequency.value = 1000;
+                        
+                        const gain = this.audioContext.createGain();
+                        gain.gain.value = 0.02;
+                        
+                        noise.buffer = buffer;
+                        noise.loop = true;
+                        noise.connect(filter);
+                        filter.connect(gain);
+                        gain.connect(this.audioContext.destination);
+                        
+                        noise.start();
+                        this.ambientSounds.wind.source = noise;
+                    },
+                    stop: () => {
+                        if (this.ambientSounds.wind.source) {
+                            this.ambientSounds.wind.source.stop();
+                        }
+                    }
+                };
+            }
+
+            setupFallbackAudio() {
+                // HTML5 Audio fallback untuk browser yang tidak support Web Audio API
+                this.sounds = {
+                    click: new Audio(this.soundFiles.click),
+                    paper: new Audio(this.soundFiles.paper),
+                    open: new Audio(this.soundFiles.open),
+                    close: new Audio(this.soundFiles.close)
+                };
+                
+                // Set volume untuk fallback
+                Object.values(this.sounds).forEach(sound => {
+                    if (sound instanceof Audio) {
+                        sound.volume = 0.3;
+                    }
+                });
+                
+                this.play = this.playFallback;
+            }
+
+            play(name, volume = 0.5, pitch = 1.0) {
+                if (this.isMuted || !this.sounds[name]) return;
+                
+                try {
+                    if (this.sounds[name].type === 'fallback') {
+                        // Play fallback oscillator sound
+                        const now = this.audioContext.currentTime;
+                        const oscillator = this.audioContext.createOscillator();
+                        const gainNode = this.audioContext.createGain();
+                        
+                        oscillator.connect(gainNode);
+                        gainNode.connect(this.audioContext.destination);
+                        
+                        oscillator.frequency.value = this.sounds[name].oscillator.frequency.value * pitch;
+                        gainNode.gain.value = volume * 0.1;
+                        
+                        oscillator.start();
+                        oscillator.stop(now + 0.1);
+                    } else {
+                        // Play buffer sound
+                        const source = this.audioContext.createBufferSource();
+                        const gainNode = this.audioContext.createGain();
+                        
+                        source.buffer = this.sounds[name];
+                        source.playbackRate.value = pitch;
+                        
+                        gainNode.gain.value = volume;
+                        
+                        source.connect(gainNode);
+                        gainNode.connect(this.audioContext.destination);
+                        
+                        source.start();
+                    }
+                } catch (error) {
+                    console.warn(`Failed to play sound ${name}:`, error);
+                }
+            }
+
+            playFallback(name, volume = 0.5) {
+                if (this.isMuted || !this.sounds[name]) return;
+                
+                try {
+                    const sound = this.sounds[name].cloneNode();
+                    sound.volume = volume;
+                    sound.play();
+                } catch (error) {
+                    console.warn(`Failed to play fallback sound ${name}:`, error);
+                }
+            }
+
+            toggleMute() {
+                this.isMuted = !this.isMuted;
+                return this.isMuted;
+            }
+
+            toggleAmbient() {
+                this.isAmbientMuted = !this.isAmbientMuted;
+                
+                if (this.isAmbientMuted) {
+                    this.ambientSounds.bird.stop();
+                    this.ambientSounds.wind.stop();
+                } else {
+                    this.ambientSounds.bird.play();
+                    this.ambientSounds.wind.play();
+                }
+                
+                return this.isAmbientMuted;
+            }
+        }
+
+        // Data surat (tetap sama)
+        const isiSurat = [
+            {
+                pengirim: "Achmad Bukhori Rohandi",
+                logo: "https://files.catbox.moe/t10tho.jpg",
+                tanggal: "1 Desember 2025",
+                isi: `<strong>"Bersama kita kuat, bersama kita bisa!"</strong><br><br>
+                Salam semangat,<br>
+                Achmad - Ketua Kelas`
+            },
+            {
+                pengirim: "Ayuni Fuji Novilianti",
+                logo: "https://img1.pixhost.to/images/9677/654939419_ndii.jpg",
+                tanggal: "1 Desember 2025",
+                isi: `<em>"The future belongs to those who believe in the beauty of their dreams."</em><br><br>
+                Dengan kasih,<br>
+                Ayuni - Wakil Ketua Kelas`
+            },
+            {
+                pengirim: "Yohana Harapenta Purba",
+                logo: "https://img1.pixhost.to/images/9690/655082817_ndii.jpg",
+                tanggal: "1 Desember 2025",
+                isi: `<strong>"Pendidikan adalah senjata paling ampuh yang bisa digunakan untuk mengubah dunia." - Nelson Mandela</strong><br><br>
+                Dengan doa,<br>
+                Bu Yohana - Wali Kelas 7F`
+            },
+            {
+                pengirim: "Tim Pengurus Kelas",
+                logo: "https://files.catbox.moe/3lijxq.jpg",
+                tanggal: "1 Desember 2025",
+                isi: ` <strong>Visi kita: Menjadi kelas terbaik, berprestasi, dan penuh kekeluargaan!</strong><br><br>
+                Salam pengurus,<br>
+                Ketua, Wakil, Sekretaris, Bendahara & Humas`
+            }
+        ];
+
+        // Data galeri (tetap sama)
+        const isiGallery = [
+            {
+                id: 1,
+                link: "https://files.catbox.moe/pl27b1.jpg",
+                tanggal: "20 Oktober 2025",
+                judul: "Perolehan Piala Harapan 3"
+            },
+            {
+                id: 2,
+                link: "https://files.catbox.moe/gwan1t.jpg",
+                tanggal: "20 Oktober 2025",
+                judul: "Foto Bersama Juara Harapan 3"
+            },
+            {
+                id: 3,
+                link: "https://files.catbox.moe/yz1sml.jpg",
+                tanggal: "17 Agustus 2025",
+                judul: "Hadiah Kemenangan Lomba 17 Agustus"
+            },
+            {
+                id: 4,
+                link: "https://files.catbox.moe/qiu0ev.jpg",
+                tanggal: "17 Agustus 2025",
+                judul: "Foto Bersama Saat Lomba"
+            },
+            {
+                id: 5,
+                link: "https://files.catbox.moe/gga0bx.jpg",
+                tanggal: "15 September 2025",
+                judul: "Foto Bersama Siswa JuepClass"
+            },
+            {
+                id: 6,
+                link: "https://files.catbox.moe/t10tho.jpg",
+                tanggal: "1 Oktober 2025",
+                judul: "Ketua Kelas 7F"
+            },
+            {
+                id: 7,
+                link: "https://img1.pixhost.to/images/9690/655082817_ndii.jpg",
+                tanggal: "1 November 2025",
+                judul: "Wali Kelas 7F"
+            },
+            {
+                id: 8,
+                link: "https://img1.pixhost.to/images/9677/654939419_ndii.jpg",
+                tanggal: "2 November 2025",
+                judul: "Wakil Ketua Kelas"
+            },
+            {
+                id: 9,
+                link: "https://img1.pixhost.to/images/9676/654909307_ndii.jpg",
+                tanggal: "September 2025",
+                judul: "Sekretaris 1"
+            },
+            {
+                id: 10,
+                link: "https://files.catbox.moe/nhbm75.jpg",
+                tanggal: "5 September 2025",
+                judul: "hmm"
+            },
+            {
+                id: 11,
+                link: "https://files.catbox.moe/lan9uj.jpg",
+                tanggal: "Bulan September 2025",
+                judul: "hmm"
+            },
+            {
+                id: 12,
+                link: "https://files.catbox.moe/qvngo9.jpg",
+                tanggal: "Bulan September 2025",
+                judul: "hmm"
+            }
+            
+        ];
+
+        // Inisialisasi Audio Controller
+        const audioController = new AudioController();
+
+        // DOM Elements
+        const mailboxModal = document.getElementById('mailbox-modal');
+        const galleryModal = document.getElementById('gallery-modal');
+        const galleryLightbox = document.getElementById('gallery-lightbox');
+        const openMailboxBtn = document.getElementById('open-mailbox-btn');
+        const openGalleryBtn = document.getElementById('open-gallery-btn');
+        const closeMailbox = document.getElementById('close-mailbox');
+        const closeGallery = document.getElementById('close-gallery');
+        const closeLightbox = document.getElementById('close-lightbox');
+        const letterContainer = document.getElementById('letter-container');
+        const mailboxIcon = document.getElementById('mailbox-icon');
+        const spreadLettersBtn = document.getElementById('spread-letters-btn');
+        const resetLettersBtn = document.getElementById('reset-letters-btn');
+        const closeAllLettersBtn = document.getElementById('close-all-letters-btn');
+        const galleryGrid = document.getElementById('gallery-grid');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxDate = document.getElementById('lightbox-date');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const soundToggle = document.getElementById('sound-toggle');
+        const ambientToggle = document.getElementById('ambient-toggle');
+        const audioVisualizer = document.getElementById('audio-visualizer');
+
+        let currentGalleryIndex = 0;
+        let lettersSpread = false;
+        let activeLetters = [];
+        let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+        // Fungsi untuk membuka mailbox dengan efek yang lebih realistis
+        function openMailbox() {
+            audioController.play('open', 0.7);
+            
+            mailboxModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Reset letters position
+            letterContainer.innerHTML = '';
+            mailboxIcon.classList.remove('hidden');
+            
+            // Tambahkan efek loading
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'mailbox-loading';
+            loadingDiv.innerHTML = `
+                <div class="mailbox-loading-spinner"></div>
+                <p>Menyiapkan surat-surat...</p>
+            `;
+            letterContainer.appendChild(loadingDiv);
+            
+            // Tambahkan surat-surat setelah delay kecil
+            setTimeout(() => {
+                loadingDiv.remove();
+                mailboxIcon.classList.add('hidden');
+                
+                isiSurat.forEach((surat, index) => {
+                    createLetter(surat, index);
+                });
+                
+                // Tampilkan surat dengan animasi bertahap
+                setTimeout(() => {
+                    spreadLetters();
+                }, 500);
+                
+            }, 1500);
+            
+            lettersSpread = false;
+        }
+
+        // Fungsi untuk membuat surat dengan efek yang lebih realistis
+        function createLetter(surat, index) {
+            const letter = document.createElement('div');
+            letter.className = 'letter';
+            letter.innerHTML = `
+                <div class="paper-texture"></div>
+                <div class="letter-header">
+                    <img src="${surat.logo}" alt="${surat.pengirim}" class="letter-logo">
+                    <div>
+                        <div class="letter-sender">${surat.pengirim}</div>
+                        <div class="letter-date">${surat.tanggal}</div>
+                    </div>
+                </div>
+                <div class="letter-content">
+                    ${surat.isi}
+                </div>
+                <div class="letter-footer">
+                    Klik untuk membuka
+                </div>
+                <div class="letter-seal">
+                    <i class="fas fa-heart"></i>
+                </div>
+            `;
+            
+            // Posisi awal (tumpuk di tengah dengan sedikit rotasi)
+            const baseRotation = (index - 1.5) * 2;
+            letter.style.left = '50%';
+            letter.style.top = '50%';
+            letter.style.transform = `translate(-50%, -50%) rotate(${baseRotation}deg)`;
+            letter.style.zIndex = index + 2;
+            letter.style.opacity = '0';
+            
+            // Efek muncul bertahap
+            setTimeout(() => {
+                letter.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                letter.style.opacity = '1';
+                letter.style.transform = `translate(-50%, -50%) rotate(${baseRotation}deg) scale(0.95)`;
+                
+                // Tambahkan efek ink blot
+                createInkBlot(letter);
+            }, index * 200);
+            
+            letter.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                if (!lettersSpread) {
+                    spreadLetters();
+                } else {
+                    toggleLetterZoom(this);
+                }
+            });
+            
+            // Tambahkan efek hover untuk desktop
+            if (!isMobile) {
+                letter.addEventListener('mouseenter', function() {
+                    if (lettersSpread && !this.classList.contains('zoomed')) {
+                        audioController.play('paper', 0.3, 1.2);
+                        this.style.transform = `translate(var(--x), var(--y)) rotate(var(--rotate)) scale(1.05)`;
+                        this.style.zIndex = 50;
+                        this.style.boxShadow = `
+                            0 15px 30px rgba(0,0,0,0.25),
+                            0 25px 50px rgba(0,0,0,0.15),
+                            inset 0 1px 0 rgba(255,255,255,0.4)
+                        `;
+                    }
+                });
+                
+                letter.addEventListener('mouseleave', function() {
+                    if (lettersSpread && !this.classList.contains('zoomed')) {
+                        this.style.transform = `translate(var(--x), var(--y)) rotate(var(--rotate))`;
+                        this.style.zIndex = parseInt(this.style.zIndex) > 100 ? 100 : parseInt(this.style.zIndex);
+                        this.style.boxShadow = `
+                            0 2px 5px rgba(0,0,0,0.1),
+                            0 10px 20px rgba(0,0,0,0.15),
+                            0 20px 40px rgba(0,0,0,0.2),
+                            inset 0 1px 0 rgba(255,255,255,0.3),
+                            inset 0 -1px 0 rgba(0,0,0,0.1)
+                        `;
+                    }
+                });
+            }
+            
+            letterContainer.appendChild(letter);
+            activeLetters.push(letter);
+            
+            return letter;
+        }
+
+        // Fungsi untuk membuat efek tinta
+        function createInkBlot(letter) {
+            const inkBlot = document.createElement('div');
+            inkBlot.className = 'ink-blot';
+            
+            // Posisi acak di dalam surat
+            const x = Math.random() * 70 + 15;
+            const y = Math.random() * 70 + 15;
+            
+            inkBlot.style.left = `${x}%`;
+            inkBlot.style.top = `${y}%`;
+            inkBlot.style.opacity = Math.random() * 0.1 + 0.05;
+            
+            letter.appendChild(inkBlot);
+            
+            // Hapus setelah animasi selesai
+            setTimeout(() => {
+                inkBlot.remove();
+            }, 2000);
+        }
+
+        // Fungsi untuk toggle zoom surat
+        function toggleLetterZoom(letter) {
+            const isZoomed = letter.classList.contains('zoomed');
+            
+            if (isZoomed) {
+                // Tutup zoom
+                audioController.play('close', 0.6, 0.9);
+                letter.classList.remove('zoomed');
+                letter.style.transform = `translate(var(--x), var(--y)) rotate(var(--rotate))`;
+                letter.style.zIndex = 2;
+                letter.style.animation = 'paperFold 0.5s ease';
+                
+                setTimeout(() => {
+                    letter.style.animation = 'paperFloat 6s ease-in-out infinite';
+                }, 500);
+            } else {
+                // Zoom surat
+                audioController.play('open', 0.7, 1.1);
+                
+                // Tutup semua surat yang sedang di-zoom
+                document.querySelectorAll('.letter.zoomed').forEach(l => {
+                    l.classList.remove('zoomed');
+                    l.style.transform = `translate(var(--x), var(--y)) rotate(var(--rotate))`;
+                    l.style.zIndex = 2;
+                    l.style.animation = 'paperFloat 6s ease-in-out infinite';
+                });
+                
+                // Zoom surat ini
+                letter.classList.add('zoomed');
+                letter.style.left = '50%';
+                letter.style.top = '50%';
+                letter.style.transform = 'translate(-50%, -50%) scale(1.2) rotate(0deg)';
+                letter.style.zIndex = 100;
+                letter.style.animation = 'none';
+                
+                // Efek shake ringan
+                letter.style.animation = 'paperShake 0.3s ease';
+                
+                setTimeout(() => {
+                    letter.style.animation = 'none';
+                }, 300);
+            }
+        }
+
+        // Fungsi untuk menyebarkan surat-surat dengan animasi yang lebih halus
+        function spreadLetters() {
+            audioController.play('paper', 0.8, 0.8);
+            
+            const containerWidth = letterContainer.clientWidth;
+            const containerHeight = letterContainer.clientHeight;
+            const letters = document.querySelectorAll('.letter');
+            
+            // Hitung posisi untuk setiap surat (menggunakan spiral atau grid)
+            letters.forEach((letter, index) => {
+                let x, y, rotate;
+                
+                if (letters.length <= 4) {
+                    // Layout untuk sedikit surat
+                    const positions = [
+                        { x: 20, y: 20, r: -5 },
+                        { x: 80, y: 20, r: 5 },
+                        { x: 20, y: 80, r: -3 },
+                        { x: 80, y: 80, r: 3 }
+                    ];
+                    
+                    const pos = positions[index] || { x: 50, y: 50, r: 0 };
+                    x = (pos.x / 100) * (containerWidth - 320);
+                    y = (pos.y / 100) * (containerHeight - 420);
+                    rotate = pos.r;
+                } else {
+                    // Layout spiral untuk banyak surat
+                    const angle = (index * 2 * Math.PI) / letters.length;
+                    const radius = Math.min(containerWidth, containerHeight) * 0.3;
+                    
+                    x = containerWidth / 2 + Math.cos(angle) * radius - 150;
+                    y = containerHeight / 2 + Math.sin(angle) * radius - 200;
+                    rotate = (Math.random() * 20) - 10;
+                }
+                
+                // Pastikan posisi dalam batas
+                x = Math.max(20, Math.min(x, containerWidth - 320));
+                y = Math.max(20, Math.min(y, containerHeight - 420));
+                
+                // Set custom properties untuk animasi
+                letter.style.setProperty('--x', `${x}px`);
+                letter.style.setProperty('--y', `${y}px`);
+                letter.style.setProperty('--rotate', `${rotate}deg`);
+                
+                // Hapus animasi sebelumnya
+                letter.style.animation = 'none';
+                void letter.offsetWidth; // Trigger reflow
+                
+                // Terapkan animasi terbang
+                letter.style.animation = `paperFlyIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards`;
+                letter.style.animationDelay = `${index * 0.15}s`;
+                
+                // Set posisi akhir dan animasi mengambang
+                setTimeout(() => {
+                    letter.style.left = `${x}px`;
+                    letter.style.top = `${y}px`;
+                    letter.style.transform = `rotate(${rotate}deg)`;
+                    letter.style.animation = `paperFloat 8s ease-in-out infinite`;
+                }, 800 + (index * 150));
+            });
+            
+            lettersSpread = true;
+            spreadLettersBtn.disabled = true;
+            
+            setTimeout(() => {
+                spreadLettersBtn.disabled = false;
+            }, 1500);
+        }
+
+        // Fungsi untuk reset posisi surat
+        function resetLetters() {
+            audioController.play('close', 0.6);
+            
+            const letters = document.querySelectorAll('.letter');
+            
+            letters.forEach((letter, index) => {
+                // Reset ke posisi tengah dengan animasi
+                letter.style.animation = `paperFlyIn 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) reverse forwards`;
+                letter.style.animationDelay = `${index * 0.1}s`;
+                
+                setTimeout(() => {
+                    letter.style.left = '50%';
+                    letter.style.top = '50%';
+                    const baseRotation = (index - 1.5) * 2;
+                    letter.style.transform = `translate(-50%, -50%) rotate(${baseRotation}deg) scale(0.95)`;
+                    letter.style.animation = 'none';
+                    letter.classList.remove('zoomed');
+                }, 600 + (index * 100));
+            });
+            
+            lettersSpread = false;
+            
+            // Tampilkan icon mailbox kembali
+            setTimeout(() => {
+                mailboxIcon.classList.remove('hidden');
+                mailboxIcon.style.opacity = '0.2';
+                mailboxIcon.style.transform = 'translate(-50%, -50%) scale(1)';
+            }, 1000);
+        }
+
+        // Fungsi untuk menutup semua surat
+        function closeAllLetters() {
+            audioController.play('close', 0.5, 0.8);
+            
+            document.querySelectorAll('.letter.zoomed').forEach(letter => {
+                letter.classList.remove('zoomed');
+                letter.style.transform = `translate(var(--x), var(--y)) rotate(var(--rotate))`;
+                letter.style.zIndex = 2;
+            });
+        }
+
+        // Fungsi untuk membuka galeri
+        function openGallery() {
+            audioController.play('open', 0.7, 1.2);
+            
+            galleryModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Isi grid galeri dengan efek bertahap
+            galleryGrid.innerHTML = '';
+            isiGallery.forEach((item, index) => {
+                setTimeout(() => {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-item';
+                    galleryItem.setAttribute('data-index', index);
+                    galleryItem.style.opacity = '0';
+                    galleryItem.style.transform = 'translateY(20px)';
+                    
+                    galleryItem.innerHTML = `
+                        <img src="${item.link}" alt="${item.judul}" loading="lazy">
+                        <div class="gallery-overlay">
+                            <h4>${item.judul}</h4>
+                            <div class="gallery-date">${item.tanggal}</div>
+                        </div>
+                    `;
+                    
+                    galleryItem.addEventListener('click', function() {
+                        audioController.play('click', 0.5, 1.1);
+                        openLightbox(index);
+                    });
+                    
+                    galleryGrid.appendChild(galleryItem);
+                    
+                    // Animasi muncul
+                    setTimeout(() => {
+                        galleryItem.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                        galleryItem.style.opacity = '1';
+                        galleryItem.style.transform = 'translateY(0)';
+                    }, 10);
+                }, index * 100);
+            });
+        }
+
+        // Fungsi untuk membuka lightbox
+        function openLightbox(index) {
+            audioController.play('open', 0.8);
+            
+            currentGalleryIndex = index;
+            const item = isiGallery[index];
+            
+            // Preload image untuk transisi yang halus
+            const img = new Image();
+            img.onload = function() {
+                lightboxImage.src = item.link;
+                lightboxImage.style.opacity = '0';
+                
+                setTimeout(() => {
+                    lightboxImage.style.transition = 'opacity 0.3s ease';
+                    lightboxImage.style.opacity = '1';
+                }, 50);
+            };
+            img.src = item.link;
+            
+            lightboxTitle.textContent = item.judul;
+            lightboxDate.textContent = item.tanggal;
+            
+            galleryLightbox.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Fungsi untuk navigasi lightbox
+        function navigateLightbox(direction) {
+            audioController.play('paper', 0.4, direction > 0 ? 1.2 : 0.8);
+            
+            currentGalleryIndex += direction;
+            
+            // Handle bounds
+            if (currentGalleryIndex < 0) {
+                currentGalleryIndex = isiGallery.length - 1;
+            } else if (currentGalleryIndex >= isiGallery.length) {
+                currentGalleryIndex = 0;
+            }
+            
+            openLightbox(currentGalleryIndex);
+        }
+
+        // Fungsi untuk menutup mailbox
+        function closeMailboxFunc() {
+            audioController.play('close', 0.6);
+            mailboxModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Fungsi untuk menutup galeri
+        function closeGalleryFunc() {
+            audioController.play('close', 0.6);
+            galleryModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Fungsi untuk menutup lightbox
+        function closeLightboxFunc() {
+            audioController.play('close', 0.5);
+            galleryLightbox.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Setup event listeners
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Inisialisasi audio controller
+            await audioController.init();
+            
+            // Setup mailbox events
+            openMailboxBtn.addEventListener('click', openMailbox);
+            closeMailbox.addEventListener('click', closeMailboxFunc);
+            spreadLettersBtn.addEventListener('click', spreadLetters);
+            resetLettersBtn.addEventListener('click', resetLetters);
+            closeAllLettersBtn.addEventListener('click', closeAllLetters);
+            
+            // Setup gallery events
+            openGalleryBtn.addEventListener('click', openGallery);
+            closeGallery.addEventListener('click', closeGalleryFunc);
+            closeLightbox.addEventListener('click', closeLightboxFunc);
+            
+            // Lightbox navigation
+            prevBtn.addEventListener('click', () => navigateLightbox(-1));
+            nextBtn.addEventListener('click', () => navigateLightbox(1));
+            
+            // Sound controls
+            soundToggle.addEventListener('click', function() {
+                const isMuted = audioController.toggleMute();
+                this.classList.toggle('muted', isMuted);
+                this.innerHTML = isMuted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
+                audioController.play('click', 0.3);
+            });
+            
+            ambientToggle.addEventListener('click', function() {
+                const isAmbientMuted = audioController.toggleAmbient();
+                this.classList.toggle('muted', isAmbientMuted);
+                this.innerHTML = isAmbientMuted ? '<i class="fas fa-dove"></i>' : '<i class="fas fa-dove" style="color: #FF6B9D"></i>';
+                audioController.play('bird', 0.2);
+            });
+            
+            // Close modals when clicking outside
+            mailboxModal.addEventListener('click', function(e) {
+                if (e.target === mailboxModal) {
+                    closeMailboxFunc();
+                }
+            });
+            
+            galleryModal.addEventListener('click', function(e) {
+                if (e.target === galleryModal) {
+                    closeGalleryFunc();
+                }
+            });
+            
+            galleryLightbox.addEventListener('click', function(e) {
+                if (e.target === galleryLightbox) {
+                    closeLightboxFunc();
+                }
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (galleryLightbox.style.display === 'block') {
+                    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                        navigateLightbox(-1);
+                    } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                        navigateLightbox(1);
+                    } else if (e.key === 'Escape') {
+                        closeLightboxFunc();
+                    }
+                } else if (mailboxModal.style.display === 'block') {
+                    if (e.key === 'Escape') {
+                        closeMailboxFunc();
+                    }
+                } else if (galleryModal.style.display === 'block') {
+                    if (e.key === 'Escape') {
+                        closeGalleryFunc();
+                    }
+                }
+            });
+            
+            // Tambahkan sound efek untuk klik di seluruh halaman
+            document.addEventListener('click', function(e) {
+                if (e.target.tagName === 'BUTTON' && 
+                    !e.target.classList.contains('sound-btn') &&
+                    !e.target.closest('.sound-controls')) {
+                    audioController.play('click', 0.3);
+                }
+                
+                // Zoom profile picture
+                if (e.target.classList.contains('profile-img') || 
+                    e.target.classList.contains('profile-img-stalker') || 
+                    e.target.classList.contains('account-profile-img')) {
+                    
+                    const imageUrl = e.target.src;
+                    openImagePreview(imageUrl);
+                }
+            });
+            
+            // Sound efek untuk scroll (opsional, tidak terlalu intrusive)
+            let scrollTimeout;
+            window.addEventListener('scroll', function() {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    // Hanya play sound saat scroll berhenti
+                    audioController.play('paper', 0.1, 0.9);
+                }, 150);
+            });
+            
+            // Handle touch events untuk mobile
+            if (isMobile) {
+                document.addEventListener('touchstart', function() {
+                    audioController.play('click', 0.2);
+                }, { passive: true });
+            }
+            
+            // Animasi audio visualizer
+            animateAudioVisualizer();
+            
+            // Start ambient sounds setelah user interaction
+            document.addEventListener('click', function initAmbient() {
+                if (!audioController.isAmbientMuted) {
+                    audioController.ambientSounds.bird.play();
+                    audioController.ambientSounds.wind.play();
+                }
+                document.removeEventListener('click', initAmbient);
+            }, { once: true });
+        });
+
+        // Fungsi untuk animasi audio visualizer
+        function animateAudioVisualizer() {
+            const bars = document.querySelectorAll('.audio-bar');
+            bars.forEach((bar, i) => {
+                bar.style.animationDelay = `${i * 0.1}s`;
+            });
+            
+            // Update visualizer berdasarkan waktu
+            setInterval(() => {
+                bars.forEach(bar => {
+                    const randomHeight = Math.random() * 80 + 20;
+                    bar.style.height = `${randomHeight}%`;
+                });
+            }, 200);
+        }
+
+        // Expose functions ke global scope
+        window.openMailbox = openMailbox;
+        window.openGallery = openGallery;
+        window.openLightbox = openLightbox;
+        window.openImagePreview = openImagePreview;
+        window.closeImagePreview = closeImagePreview;
+    </script> 
 </body>
 </html>
